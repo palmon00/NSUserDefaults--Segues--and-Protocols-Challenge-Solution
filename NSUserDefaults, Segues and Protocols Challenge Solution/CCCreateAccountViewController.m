@@ -27,9 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.usernameTextField.text = @"";
-    self.passwordTextField.text = @"";
-    self.confirmPasswordTextField.text = @"";
     
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
@@ -88,10 +85,21 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.passwordTextField.text forKey:USER_PASSWORD];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    // clear out text fields for privacy
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
+    self.confirmPasswordTextField.text = @"";
+    
     [self.delegate didCreateAccount];
 }
 
 - (IBAction)cancelButtonPressed:(UIButton *)sender {
+    
+    // clear out text fields for privacy
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
+    self.confirmPasswordTextField.text = @"";
+    
     [self.delegate didCancel];
 }
 

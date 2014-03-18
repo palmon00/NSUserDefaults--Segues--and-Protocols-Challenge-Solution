@@ -29,8 +29,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.usernameTextField.text = @"";
-    self.passwordTextField.text = @"";
     
     self.usernameTextField.delegate = self;
     self.passwordTextField.delegate = self;
@@ -56,10 +54,12 @@
         CCViewController *vC = segue.destinationViewController;
         vC.username = self.usernameTextField.text;
         vC.password = self.passwordTextField.text;
-        NSLog(@"Username %@ %@ Password %@ %@", vC.username, self.usernameTextField.text, vC.password, self.passwordTextField.text);
         vC.delegate = self;
-        NSLog(@"%@", vC);
     }
+    
+    // clean up local text fields for privacy
+    self.usernameTextField.text = @"";
+    self.passwordTextField.text = @"";
 }
 
 /*
