@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.usernameLabel.text = self.username;
+    self.passwordLabel.text = self.password;
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +28,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)logoutButtonPressed:(UIButton *)sender {
+    [self.delegate didLogout];
+}
 @end
